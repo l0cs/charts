@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  blank:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-10-23T00:57:38.308053116Z"
+    description: A Helm chart for Kubernetes
+    digest: 01ad6ce4eca4d94c00f67b76d751c690f9ed1ef4e24a52aa352ce7512cb27fec
+    name: blank
+    type: application
+    urls:
+    - https://github.com/l0cs/charts/releases/download/blank-0.1.0/blank-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-10-23T00:57:38.13560195Z"
