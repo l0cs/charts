@@ -1,0 +1,25 @@
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ template "diun.fullname" . }}-pv
+  annotations:
+  {{- with .Values.persistence.annotations }}
+  {{ toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ template "diun.name" . }}
+    helm.sh/chart: {{ template "diun.chart" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessMode | quote }}
+  capacity:
+    storage: {{ .Values.persistence.size | quote }}
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
+  nfs:
+    server: {{ .Values.persistence.server }}
+    path: {{ .Values.persistence.path }}
+  persistentVolumeReclaimPolicy: Delete
+{{- end}}
