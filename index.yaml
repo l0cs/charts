@@ -11,4 +11,18 @@ entries:
     urls:
     - https://github.com/l0cs/charts/releases/download/blank-0.1.0/blank-0.1.0.tgz
     version: 0.1.0
+  diun:
+  - apiVersion: v2
+    appVersion: 4.12.0
+    created: "2021-02-16T23:30:38.551718547Z"
+    description: A Helm chart for Docker Image Update Notifier (DIUN) on Kubernetes
+    digest: 71ccd7836453191e1e64cb5c2f213abe30be100ea88f3a6c0de2f1e48fc7bbf9
+    maintainers:
+    - email: l0cs@protonmail.com
+      name: l0cs
+    name: diun
+    type: application
+    urls:
+    - https://github.com/l0cs/charts/releases/download/diun-0.1.0/diun-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-10-23T00:57:38.13560195Z"
