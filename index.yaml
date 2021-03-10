@@ -25,4 +25,15 @@ entries:
     urls:
     - https://github.com/l0cs/charts/releases/download/diun-0.1.0/diun-0.1.0.tgz
     version: 0.1.0
+  transmission:
+  - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2021-03-10T21:58:17.660540383Z"
+    description: A Helm chart for Kubernetes
+    digest: f04ff14b34393e834183b24e273f27d26b2ee78ae306f042809b777b90588141
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/l0cs/charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-10-23T00:57:38.13560195Z"
