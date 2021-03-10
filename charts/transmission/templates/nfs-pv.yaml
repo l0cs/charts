@@ -1,0 +1,30 @@
+{{- if .Values.persistence.nfs.enabled }}
+{{- range .Values.persistence.nfs.mounts }}
+{{- if not .existingClaim }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .mountName }}-pv
+  annotations:
+  {{- with .annotations | default $.Values.persistence.annotations }}
+  {{ toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ template "transmission.name" $ }}
+    helm.sh/chart: {{ template "transmission.chart" $ }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+    app.kubernetes.io/instance: {{ $.Release.Name }}
+spec:
+  accessModes:
+    - {{ .accessMode | default $.Values.persistence.accessMode }}
+  capacity:
+    storage: {{ .size | default "1Mi" $.Values.persistence.size }}
+  storageClassName: {{ default $.Values.persistence.storageClass .storageClass }}
+  nfs:
+    server: {{ .server | default $.Values.persistence.server }}
+    path: {{ .sourcePath }}
+  persistentVolumeReclaimPolicy: Delete
+{{- end }}
+{{- end }}
+{{- end }}
